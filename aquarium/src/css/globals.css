@@ -5,5 +5,5 @@
 
 
 body {
-  @apply font-inter bg-primary text-white;
+  @apply font-inter  text-white;
 }
