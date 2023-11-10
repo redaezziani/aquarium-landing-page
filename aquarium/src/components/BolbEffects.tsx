@@ -51,7 +51,7 @@ const BolbEffects = () => {
         dragConstraints={{left:0,right:0,top:0,bottom:0}}
         className=" text-slate-500 text-sm"
         >
-            drag and drop all the element in this web site just try it, just have fun 
+        drag and drop all the element in this web site just try it, just have fun 
         </motion.p>
         <div
         className=" mt-60 fixed"
