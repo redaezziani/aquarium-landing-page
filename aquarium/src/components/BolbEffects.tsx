@@ -12,7 +12,6 @@ const BolbEffects = () => {
         e.target.style.padding=".5rem"
         e.target.style.borderRadius="5px"
         e.target.style.cursor="pointer"
-        // add a dashed border to the target element
         e.target.style.borderStyle="dashed"
     }
     
