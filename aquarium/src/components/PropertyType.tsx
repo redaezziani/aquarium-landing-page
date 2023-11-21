@@ -108,7 +108,7 @@ const PropertyType = () => {
         onSlideChange={() => console.log("slide change")}
         onSwiper={(swiper) => setSwiper(swiper)}
         slidesPerView={1}
-        spaceBetween={30}
+        spaceBetween={70}
         className=" mt-10 w-full p-3"
         // swipe just one slide
         preventInteractionOnTransition={true}
@@ -118,13 +118,13 @@ const PropertyType = () => {
           return (
             <SwiperSlide
               key={index}
-              className={`  w-40 h-40     flex flex-col justify-center items-center  border ${
+              className={`  w-52 h-52   flex flex-col justify-center items-center  border ${
                 item.isActive
-                  ? " border-red-600 shadow-md shadow-red-500/75"
+                  ? " border-red-600 "
                   : "border-slate-600"
               } rounded-xl p-4`}
             >
-              <img src={item.img} alt="" className=" w-14 h-14 object-cover" />
+              <img src={item.img} alt="" className=" w-16 h-16 object-cover" />
               <h1 className="text-sm font-bold text-gray-800 mt-2">
                 {item.name}
               </h1>
