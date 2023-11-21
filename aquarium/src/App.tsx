@@ -1,6 +1,8 @@
 import NavBar from "./components/NavBar"
 import Hero from "./components/Hero"
 import NumberThing from "./components/NumberThing"
+import PropertyType from "./components/PropertyType"
+import PopularResidence from "./components/PopularResidence"
 function App() {
   return (
     <div
@@ -8,8 +10,9 @@ function App() {
     >
       <NavBar/>
       <Hero/>
-      
       <NumberThing/>
+      <PropertyType/>
+      <PopularResidence/>
     </div>
   )
 }

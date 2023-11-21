@@ -5,7 +5,7 @@ const Hero = () => {
     className="w-full  overflow-hidden relative bg-[#F1F1F1] min-h-[86vh] flex justify-center items-center"
     >
         <img src={base}
-        className="w-[51.263rem] -z-1  absolute right-0 bottom-0 "
+        className=" -z-1  absolute right-0 bottom-0 "
         alt="base" />
         <div className=" w-[74%] z-10 flex justify-start items-start gap-3 flex-col">
           <h1
