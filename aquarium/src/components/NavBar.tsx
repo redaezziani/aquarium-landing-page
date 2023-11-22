@@ -131,12 +131,19 @@ const NavBar = () => {
 
           
           <div className={` gap-3 justify-center items-center lg:order-3  hidden lg:flex  `}>
-          <button className=" bg-red-500 text-white rounded-[10px] px-4 py-2 text-sm font-semibold">
+         <Link
+         to={"/login"}
+         >
+         <button className=" bg-red-500 text-white rounded-[10px] px-4 py-2 text-sm font-semibold">
             Login
           </button>
+         </Link>
+          <Link
+          to={"/signup"}
+          >
           <button className=" border-2 border-red-500 text-red-500 rounded-[10px] px-4 py-1.5 text-sm font-semibold">
             SignUp
-          </button>
+          </button></Link>
           </div>
           <motion.svg
           className={`flex order-2 lg:hidden  text-red-500  w-9 h-9 cursor-pointer ${isOpen? " border border-white/50 rounded-md p-2":""}	`}

@@ -1,18 +1,22 @@
 import NavBar from "./components/NavBar"
-import Hero from "./components/Hero"
-import NumberThing from "./components/NumberThing"
-import PropertyType from "./components/PropertyType"
-import PopularResidence from "./components/PopularResidence"
+
+import { Route, Routes } from "react-router-dom"
+// the real pages
+import Home from "./pages/Home"
+import Login from "./pages/Login"
+import SignUp from "./pages/SignUp"
 function App() {
   return (
     <div
     className="w-full  flex relative bg-white  justify-start items-center flex-col min-h-screen"
     >
       <NavBar/>
-      <Hero/>
-      <NumberThing/>
-      <PropertyType/>
-      <PopularResidence/>
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/login" element={<Login/>}/>
+        <Route path="/signup" element={<SignUp/>}/>
+        
+      </Routes>
     </div>
   )
 }
