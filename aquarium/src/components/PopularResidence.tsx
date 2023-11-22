@@ -9,11 +9,10 @@ interface PopularResidenceProps {
     price: string;
     desc: string;
     rate: number;
-    
 }
 
 const PopularResidence = () => {
-    const data: PopularResidenceProps = [
+    const data: PopularResidenceProps[] = [
       {
         image: image1,
         name: "Safira magesti raya",
@@ -46,7 +45,7 @@ const PopularResidence = () => {
   return (
     <div className=" mt-24 p-2 w-[75%] flex flex-col justify-start items-start z-30">
       <h1 className="text-xl font-bold text-gray-800">Popular Residences</h1>
-      <div className="grid mt-9 grid-cols-4 gap-5 w-full">
+      <div className="grid mt-9 sm:col-span-2 col-span-1 md:col-span-3 lg:grid-cols-4 gap-5 w-full">
         {data.map((item:any, index:number) => (
           <div
             key={index}

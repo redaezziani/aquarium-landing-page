@@ -16,7 +16,7 @@ interface PropertyTypeProps {
 
 const PropertyType = () => {
   const [swiper, setSwiper] = useState<any>(null);
-  const data: PropertyTypeProps = [
+  const data: PropertyTypeProps[] = [
     {
       name: "Private House",
       desc: "523 Property",
@@ -107,12 +107,22 @@ const PropertyType = () => {
       <Swiper
         onSlideChange={() => console.log("slide change")}
         onSwiper={(swiper) => setSwiper(swiper)}
-        slidesPerView={1}
-        spaceBetween={70}
         className=" mt-10 w-full p-3"
-        // swipe just one slide
-        preventInteractionOnTransition={true}
-
+        
+        breakpoints={{
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 10,
+          },
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 50,
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 60,
+          },
+        }}
       >
         {data.map((item, index) => {
           return (
