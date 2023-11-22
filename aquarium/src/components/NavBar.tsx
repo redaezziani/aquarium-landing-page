@@ -91,9 +91,12 @@ const NavBar = () => {
                 fill="#FA2646"
               />
             </svg>
-            <p className={` text-lg  
-                  text-white
-                  font-semibold`}>FrazProp.</p>
+            <Link
+            to={"/"}
+
+            >
+            <p className={` text-lg text-white font-semibold`}>FrazProp.</p>
+            </Link>
           </div>
           {
             isOpen ? (
@@ -176,9 +179,13 @@ const NavBar = () => {
                 fill="#FA2646"
               />
             </svg>
+            <Link
+            to={"/"}
+            >
             <p className={` text-lg  
                     text-slate-800
                   font-semibold`}>FrazProp.</p>
+            </Link>
           </div>
           <div className="Links flex gap-6 justify-center items-center">
             {data.map((item, index) => {
