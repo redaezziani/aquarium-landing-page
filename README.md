@@ -23,7 +23,7 @@ Follow these steps to explore frazProp on your local machine:
 git clone https://github.com/your-username/aquarium-landing-page.git
 
 # Navigate to the Project Directory:
-cd aquarium-landing-page
+cd aquarium-landing-page/aquarium
 
 # Install Dependencies:
 npm install
