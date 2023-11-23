@@ -1,3 +1,7 @@
+<img src="web-site-demo.png" />
+
+<hr />
+
 # frazProp - Aquarium Landing Page
 
 Welcome to frazProp - Your Ultimate Destination for Aquarium Enthusiasts! This project showcases a captivating landing page for aquarium-related content. Dive into the underwater world of frazProp built with React, TypeScript, Vite, React Router, Framer Motion, and Hero Icons.
