@@ -64,7 +64,9 @@ const NavBar = () => {
 
 
   return (
-    <AnimatePresence>
+    <AnimatePresence
+    
+    >
       <div className={`fixed z-40 bg-black/50 backdrop-blur-sm  w-full h-screen overflow-hidden ${isOpen?"flex ":"hidden"} `}></div>
       {
         isMoved ? (
