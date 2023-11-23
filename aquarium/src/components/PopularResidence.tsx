@@ -1,8 +1,10 @@
+import {  useRef } from "react";
 import image1 from "../assets/im-1.jpg";
 import image2 from "../assets/im-2.jpg";
 import image3 from "../assets/im-3.jpg";
 import image4 from "../assets/im-4.jpg";
-
+import  {useScroll, motion} from "framer-motion"
+import { useState, useEffect } from "react";
 interface PopularResidenceProps {
     image: string;
     name: string;
@@ -42,18 +44,55 @@ const PopularResidence = () => {
         rate: 4.2,
       },
     ];
+    const [Super , setSuper] = useState(0)
+
+    const getTheSuper = () => {
+      // get the index of the highest rate
+      const max = Math.max.apply(
+        Math,
+        data.map(function (o) {
+          return o.rate;
+        })
+      );
+      // get the index of the highest rate
+      const index = data.findIndex((item) => item.rate === max);
+      setSuper(index)
+
+    }
+    
+    useEffect(() => {
+      getTheSuper()
+    }
+    , [])
+
+    const ref=useRef(null)
+   const {scrollYProgress} = useScroll(
+      {
+        target: ref,
+        offset: ["0 0" ,"1.33 1" ]
+      }
+    )
   return (
     <div className=" mt-24 p-2 w-[75%] flex flex-col justify-start items-start z-30">
       <h1 className="text-xl font-bold text-gray-800">Popular Residences</h1>
-      <div className="grid mt-9 sm:col-span-2 col-span-1 md:col-span-3 lg:grid-cols-4 gap-5 w-full">
+      <div
+      
+      className="grid mt-9  col-span-1 sm:col-span-2  md:grid-cols-4 gap-5 w-full">
         {data.map((item:any, index:number) => (
-          <div
+          <motion.div
+            ref={ref}
+            style={{y:scrollYProgress, scale:scrollYProgress}}
+            initial={{y:60, scale:0.8}}
+            animate={{y:0, scale:1}}
+            transition={{duration:0.5, delay:index * 0.1}}
             key={index}
             className="col-span-1 w-full flex flex-col gap-3 overflow-hidden "
           >
             <div className="relative w-full overflow-hidden rounded-lg ">
-              <span className="absolute top-2 right-2 text-xs bg-white rounded-md  px-2 py-1 flex gap-1 items-center">
+              <span
+              className="absolute top-2 right-2 text-xs bg-white rounded-md  px-2 py-1 flex gap-1 items-center">
                 <svg
+                
                   width="9"
                   height="9"
                   viewBox="0 0 9 9"
@@ -62,8 +101,8 @@ const PopularResidence = () => {
                 >
                   <path
                     d="M5.45736 1.41109L6.1498 2.80741C6.24422 3.00179 6.49602 3.18823 6.70847 3.22393L7.96352 3.43418C8.76612 3.56905 8.95497 4.15614 8.37663 4.7353L7.40091 5.71908C7.23567 5.88568 7.14518 6.207 7.19633 6.43707L7.47567 7.6549C7.69599 8.61884 7.18846 8.99172 6.34258 8.48793L5.16622 7.7858C4.95376 7.65886 4.60361 7.65886 4.38722 7.7858L3.21085 8.48793C2.3689 8.99172 1.85744 8.61487 2.07776 7.6549L2.3571 6.43707C2.40824 6.207 2.31776 5.88568 2.15251 5.71908L1.1768 4.7353C0.60239 4.15614 0.787303 3.56905 1.58991 3.43418L2.84495 3.22393C3.05347 3.18823 3.30527 3.00179 3.39969 2.80741L4.09215 1.41109C4.46984 0.653418 5.0836 0.653418 5.45736 1.41109Z"
-                    fill="black"
-                    fill-opacity="0.5"
+                    fill={`${index === Super ? "#FFC107" : "black"} `}
+
                   />
                 </svg>
                 <p
@@ -99,7 +138,7 @@ const PopularResidence = () => {
                 </svg>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>
