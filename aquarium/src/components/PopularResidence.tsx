@@ -6,6 +6,7 @@ interface PopularResidenceProps {
     price: string;
     desc: string;
     rate: number;
+    _id: string;
 }
 
 const PopularResidence = () => {
@@ -48,7 +49,7 @@ const PopularResidence = () => {
             initial={{y:60, scale:0.8}}
             animate={{y:0, scale:1}}
             transition={{duration:0.5, delay:index * 0.1}}
-            key={index}
+            key={item._id}
             className="col-span-1 w-full flex flex-col gap-3 overflow-hidden "
           >
             <div className="relative w-full overflow-hidden rounded-lg ">

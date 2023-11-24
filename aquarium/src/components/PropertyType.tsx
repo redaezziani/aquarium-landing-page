@@ -1,10 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import home from "../assets/svgs/Group 3.svg";
-import apartment from "../assets/svgs/Group.svg";
-import shop from "../assets/svgs/Group(1).svg";
-import office from "../assets/svgs/Group(2).svg";
-import villa from "../assets/svgs/Group 3(1).svg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "swiper/css";
 
 interface PropertyTypeProps {
@@ -12,42 +7,22 @@ interface PropertyTypeProps {
   desc: string;
   img: string;
   isActive: boolean;
+  _id: string;
 }
 
 const PropertyType = () => {
   const [swiper, setSwiper] = useState<any>(null);
-  const data: PropertyTypeProps[] = [
-    {
-      name: "Private House",
-      desc: "523 Property",
-      img: home,
-      isActive: false,
-    },
-    {
-      name: "Apartment",
-      desc: "142 Property",
-      img: apartment,
-      isActive: false,
-    },
-    {
-      name: "Shop",
-      desc: "81 Property",
-      img: shop,
-      isActive: false,
-    },
-    {
-      name: "Office",
-      desc: "231 Property",
-      img: office,
-      isActive: true,
-    },
-    {
-      name: "Villa",
-      desc: "423 Property",
-      img: villa,
-      isActive: false,
-    },
-  ];
+
+  const [data, setData] = useState<PropertyTypeProps[]>([]);
+
+
+  const getPropertyType= async () => {
+          const response = await fetch("http://localhost:8080/properties")
+          const data = await response.json()
+          setData(data)
+          console.log(data)
+  }
+
 
   const next = () => {
     if (swiper) {
@@ -60,6 +35,10 @@ const PropertyType = () => {
       swiper.slidePrev();
     }
   }
+
+  useEffect(()=>{
+    getPropertyType()
+  },[])
 
   return (
     <div className=" mt-24 w-[75%] flex flex-col justify-start items-start z-30">
@@ -126,7 +105,7 @@ const PropertyType = () => {
         {data.map((item, index) => {
           return (
             <SwiperSlide
-              key={index}
+              key={item._id}
               className={` cursor-pointer  w-52 h-52   flex flex-col justify-center items-center  border ${
                 item.isActive
                   ? " border-red-600 "
@@ -137,7 +116,7 @@ const PropertyType = () => {
               <h1 className="text-sm font-bold text-gray-800 mt-2">
                 {item.name}
               </h1>
-              <p className="text-xs text-gray-500">{item.desc}</p>
+              <p className="text-xs text-gray-500">{item.desc} Property</p>
             </SwiperSlide>
           );
         })}
