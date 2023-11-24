@@ -4,7 +4,14 @@
 
 # frazProp - Aquarium Landing Page
 
-Welcome to frazProp - Your Ultimate Destination for Aquarium Enthusiasts! This project showcases a captivating landing page for aquarium-related content. Dive into the underwater world of frazProp built with React, TypeScript, Vite, React Router, Framer Motion, and Hero Icons.
+🏡 Welcome to FrazProp – Your Premier Hub for Real Estate Excellence! Explore the pinnacle of property discovery as we present FrazProp, your ultimate destination for buying, selling, and renting exquisite apartments and houses.
+
+🌟 Immerse yourself in a curated selection of top-tier listings that redefine luxury living. FrazProp brings you an unparalleled real estate experience, seamlessly blending sophistication with cutting-edge technology.
+
+🚀 Our platform is meticulously crafted using the latest technologies – React, TypeScript, Vite, React Router, Framer Motion, and Hero Icons – ensuring a sleek and intuitive journey through the world of real estate. 
+
+Discover your dream home with FrazProp – where every listing is a masterpiece, and your journey to extraordinary living begins!
+
 
 ## Features
 
