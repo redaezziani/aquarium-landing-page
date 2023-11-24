@@ -1,9 +1,4 @@
-import {  useRef } from "react";
-import image1 from "../assets/im-1.jpg";
-import image2 from "../assets/im-2.jpg";
-import image3 from "../assets/im-3.jpg";
-import image4 from "../assets/im-4.jpg";
-import  {useScroll, motion} from "framer-motion"
+import  { motion} from "framer-motion"
 import { useState, useEffect } from "react";
 interface PopularResidenceProps {
     image: string;
@@ -14,47 +9,23 @@ interface PopularResidenceProps {
 }
 
 const PopularResidence = () => {
-    const data: PopularResidenceProps[] = [
-      {
-        image: image1,
-        name: "Safira magesti raya",
-        price: "40.424",
-        desc: "Jl. Mangesti Raya Gentan Sukoharjo",
-        rate: 4.6,
-      },
-      {
-        image: image2,
-        name: "Solo Urbana Residence",
-        price: "23.692",
-        desc: "Jl. Mojo, Gulon, Mojosongo, Kec. Jebres, Kota Surakarta.",
-        rate: 4.8,
-      },
-      {
-        image: image3,
-        name: "Brentwood Residence",
-        price: "159.475",
-        desc: "Grogol, Dusun I, Telukan, Kec. Grogol.",
-        rate: 4.4,
-      },
-      {
-        image: image4,
-        name: "Solo paragon residence",
-        price: "34.656",
-        desc: "Banjarsari, Surakarta, Jawa Tengah",
-        rate: 4.2,
-      },
-    ];
+     const [data, setData] = useState<PopularResidenceProps[]>([]);
+
+
+     const getResidence= async () => {
+          const response = await fetch("http://localhost:8080/residences")
+          const data = await response.json()
+          setData(data)
+      }
     const [Super , setSuper] = useState(0)
 
     const getTheSuper = () => {
-      // get the index of the highest rate
       const max = Math.max.apply(
         Math,
         data.map(function (o) {
           return o.rate;
         })
       );
-      // get the index of the highest rate
       const index = data.findIndex((item) => item.rate === max);
       setSuper(index)
 
@@ -62,16 +33,10 @@ const PopularResidence = () => {
     
     useEffect(() => {
       getTheSuper()
+      getResidence()
     }
     , [])
 
-    const ref=useRef(null)
-   const {scrollYProgress} = useScroll(
-      {
-        target: ref,
-        offset: ["0 0" ,"1.33 1" ]
-      }
-    )
   return (
     <div className=" mt-24 p-2 w-[75%] flex flex-col justify-start items-start z-30">
       <h1 className="text-xl font-bold text-gray-800">Popular Residences</h1>
@@ -80,8 +45,6 @@ const PopularResidence = () => {
       className="grid mt-9  col-span-1 sm:col-span-2  md:grid-cols-4 gap-5 w-full">
         {data.map((item:any, index:number) => (
           <motion.div
-            ref={ref}
-            style={{y:scrollYProgress, scale:scrollYProgress}}
             initial={{y:60, scale:0.8}}
             animate={{y:0, scale:1}}
             transition={{duration:0.5, delay:index * 0.1}}
@@ -101,7 +64,7 @@ const PopularResidence = () => {
                 >
                   <path
                     d="M5.45736 1.41109L6.1498 2.80741C6.24422 3.00179 6.49602 3.18823 6.70847 3.22393L7.96352 3.43418C8.76612 3.56905 8.95497 4.15614 8.37663 4.7353L7.40091 5.71908C7.23567 5.88568 7.14518 6.207 7.19633 6.43707L7.47567 7.6549C7.69599 8.61884 7.18846 8.99172 6.34258 8.48793L5.16622 7.7858C4.95376 7.65886 4.60361 7.65886 4.38722 7.7858L3.21085 8.48793C2.3689 8.99172 1.85744 8.61487 2.07776 7.6549L2.3571 6.43707C2.40824 6.207 2.31776 5.88568 2.15251 5.71908L1.1768 4.7353C0.60239 4.15614 0.787303 3.56905 1.58991 3.43418L2.84495 3.22393C3.05347 3.18823 3.30527 3.00179 3.39969 2.80741L4.09215 1.41109C4.46984 0.653418 5.0836 0.653418 5.45736 1.41109Z"
-                    fill={`${index === Super ? "#FFC107" : "black"} `}
+                    fill="#FFC107"
 
                   />
                 </svg>

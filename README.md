@@ -1,4 +1,4 @@
-<img src="web-site-demo.png" />
+<img src="./aquarium-readme/images/web-site-demo.png" />
 
 <hr />
 
