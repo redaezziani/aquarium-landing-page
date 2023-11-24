@@ -71,3 +71,10 @@ Feedback
     We value your feedback! If you have suggestions or encounter issues, please open an issue on GitHub.
 
 Enjoy exploring frazProp - your gateway to the fascinating world of aquariums!
+
+note *: 
+
+--> cd server 
+--> npm i
+--> npx nodemon
+<p>this well start your server to get data from the db mongodb</p>
