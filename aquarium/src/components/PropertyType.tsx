@@ -105,10 +105,9 @@ const PropertyType = () => {
         </div>
       </div>
       <Swiper
-        onSlideChange={() => console.log("slide change")}
         onSwiper={(swiper) => setSwiper(swiper)}
-        className=" mt-10 w-full p-3"
-        
+        className=" mt-10 w-fit p-3"
+        width={80}
         breakpoints={{
           640: {
             slidesPerView: 2,
@@ -128,7 +127,7 @@ const PropertyType = () => {
           return (
             <SwiperSlide
               key={index}
-              className={`  w-52 h-52   flex flex-col justify-center items-center  border ${
+              className={` cursor-pointer  w-52 h-52   flex flex-col justify-center items-center  border ${
                 item.isActive
                   ? " border-red-600 "
                   : "border-slate-600"

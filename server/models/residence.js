@@ -9,6 +9,6 @@ const residenceSchema = new mongoose.Schema({
   rate: Number,
 });
 
-const Residence = mongoose.model('Residence', residenceSchema);
+const Residence = mongoose.model('Residence', residenceSchema);// 
 
 export default Residence;
