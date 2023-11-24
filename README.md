@@ -72,9 +72,28 @@ Feedback
 
 Enjoy exploring frazProp - your gateway to the fascinating world of aquariums!
 
-note *: 
+server setup :
+```bash
+$ cd server
+$ npm install
+$ npx nodemon
 
---> cd server 
---> npm i
---> npx nodemon
-<p>this well start your server to get data from the db mongodb</p>
+```
+
+
+This will render as:
+
+```bash
+$ cd server
+$ npm install
+$ npx nodemon
+
+```
+
+```env
+# .env.example
+
+PORT=8000
+CLIENT_URL=http://localhost:3000
+MONGO_URI=mongodb://localhost:27017/FrazProp
+``````
