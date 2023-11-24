@@ -73,16 +73,15 @@ Feedback
 Enjoy exploring frazProp - your gateway to the fascinating world of aquariums!
 
 server setup :
+
 ```bash
 $ cd server
 $ npm install
 $ npx nodemon
-
 ```
 
 
 This will render as:
-
 ```bash
 $ cd server
 $ npm install
