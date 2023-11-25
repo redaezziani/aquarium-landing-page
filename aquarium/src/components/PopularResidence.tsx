@@ -50,7 +50,7 @@ const PopularResidence = () => {
             animate={{y:0, scale:1}}
             transition={{duration:0.5, delay:index * 0.1}}
             key={item._id}
-            className="col-span-1 w-full flex flex-col gap-3 overflow-hidden "
+            className="col-span-1  w-full flex flex-col gap-3 overflow-hidden "
           >
             <div className="relative w-full overflow-hidden rounded-lg ">
               <span
